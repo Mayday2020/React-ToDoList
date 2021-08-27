@@ -32,8 +32,11 @@ function App() {
     const dispatch = useDispatch();
 
     const removeTask = useCallback(function (id: string, todolistId: string) {
-        const action = removeTaskAC(id, todolistId);
-        dispatch(action);
+        todolistsAPI.deleteTask(todolistId, id)
+            .then(()=>{
+                const action = removeTaskAC(id, todolistId);
+                dispatch(action)
+            })
     }, []);
 
     const addTask = useCallback(function (title: string, todolistId: string) {
