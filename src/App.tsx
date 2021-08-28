@@ -43,7 +43,12 @@ function App() {
         const action = addTaskAC(title, todolistId);
         dispatch(action);
     }, []);
-
+// COPY adtask
+    const addTask = useCallback(function (title: string, todolistId: string) {
+        const action = addTaskAC(title, todolistId);
+        dispatch(action);
+    }, []);
+    // COPY addTask
     const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
         const action = changeTaskStatusAC(id, status, todolistId);
         dispatch(action);
